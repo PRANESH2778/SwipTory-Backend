@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const port = process.env.PORT || 2000;
+const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
 const userRoutes = require("./routes/UserRoutes");
 const statusRoutes = require("./routes/StatusRoutes");
 const app = express();
@@ -17,8 +19,16 @@ mongoose
     console.log(error);
     console.log("error Connecting db");
   });
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:5174',
+  credentials: true
+}));
 app.use(express.json());
+app.use(cookieParser());
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to the home" });
 });

@@ -32,7 +32,7 @@ const register = async (req, res, next) => {
       return res.status(400).json("User already exists");
     }
 
-    const hashedPassword = await bcrypt.hashSync(password, 10);
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     const user = new User({ username, password: hashedPassword });
     await user.save();
@@ -42,7 +42,6 @@ const register = async (req, res, next) => {
       expiresIn: "10d",
     });
     res.cookie("token", token, { httpOnly: true, strict: true, secure: true });
-
     res.status(201).json({
       success: true,
       token,

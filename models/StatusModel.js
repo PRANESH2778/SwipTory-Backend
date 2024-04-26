@@ -46,4 +46,6 @@ const statusSchema = new mongoose.Schema({
         },
         { timestamps: true }
       );
-module.exports = mongoose.model("Status",statusSchema)
+      const Story = mongoose.model("Story", statusSchema);
+      module.exports = Story;
+      
