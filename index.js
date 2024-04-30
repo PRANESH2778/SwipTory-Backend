@@ -21,7 +21,7 @@ mongoose
   });
 // app.use(cors());
 app.use(cors({
-  origin: 'http://localhost:5174',
+  origin: 'https://swip-tory-frontend-eight.vercel.app/',
   credentials: true
 }));
 app.use(express.json());
