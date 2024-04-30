@@ -21,7 +21,7 @@ mongoose
   });
 // app.use(cors());
 app.use(cors({
-  origin: 'https://swip-tory-frontend-eight.vercel.app',
+  origin: 'https://tangerine-brioche-59075a.netlify.app',
   credentials: true
 }));
 app.use(express.json());
