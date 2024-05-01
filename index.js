@@ -20,10 +20,12 @@ mongoose
     console.log("error Connecting db");
   });
 // app.use(cors());
-app.use(cors({
-  origin: 'https://tangerine-brioche-59075a.netlify.app',
-  credentials: true
-}));
+const corsOptions = {
+  credentials:true,
+  origin:"https://tangerine-brioche-59075a.netlify.app",
+}
+app.use(cors(corsOptions))
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.json());
